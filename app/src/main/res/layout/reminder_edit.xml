@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -11,26 +10,13 @@
         android:layout_height="fill_parent"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/title" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:text="@string/title"/>
-
-            <ImageButton
-                android:id="@+id/btn_camera"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
-                android:src="@android:drawable/ic_menu_camera"/>
-        </RelativeLayout>
 
         <EditText
             android:id="@+id/title"
@@ -38,13 +24,12 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:gravity="left"
-            android:hint="title"
-            />
+            android:hint="title" />
 
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/body"/>
+            android:text="@string/body" />
 
         <EditText
             android:id="@+id/body"
@@ -53,38 +38,42 @@
             android:layout_margin="10dp"
             android:gravity="top"
             android:hint="Description"
-            android:lines="2"
-            />
+            android:lines="2" />
 
-        <GridLayout
-            android:id="@+id/layout_pic"
+
+        <Button
+            android:id="@+id/btn_reminder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Reminder" />
+
+        <LinearLayout
+            android:id="@+id/layout_date_picker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="4"
-            android:rowCount="4">
-        </GridLayout>
+            android:orientation="vertical"
+            android:visibility="gone">
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/date"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/date" />
 
-        <Button
-            android:id="@+id/reminder_date"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            />
+            <Button
+                android:id="@+id/reminder_date"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/time"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/time" />
 
-        <Button
-            android:id="@+id/reminder_time"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            />
+            <Button
+                android:id="@+id/reminder_time"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/confirm"
@@ -92,7 +81,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="@string/confirm"
-            android:textSize="16sp"
-            />
+            android:textSize="16sp" />
     </LinearLayout>
 </ScrollView>
