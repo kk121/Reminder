@@ -7,14 +7,12 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 
 public class ReminderListActivity extends ListActivity implements View.OnClickListener {
     private static final int ACTIVITY_CREATE = 0;
@@ -42,16 +40,8 @@ public class ReminderListActivity extends ListActivity implements View.OnClickLi
         Cursor remindersCursor = mDbHelper.fetchAllReminders();
         startManagingCursor(remindersCursor);
 
-        // Create an array to specify the fields we want to display in the list
-        String[] from = new String[]{RemindersDbAdapter.KEY_TITLE, RemindersDbAdapter.KEY_DATE_TIME};
-
-        // and an array of the fields we want to bind those fields to (in this case just text1)
-        int[] to = new int[]{R.id.text1, R.id.reminder_time};
-
-        // Now create a simple cursor adapter and set it to display
-        SimpleCursorAdapter reminders =
-                new SimpleCursorAdapter(this, R.layout.reminder_row, remindersCursor, from, to);
-        setListAdapter(reminders);
+        CustomCursorAdapter customCursorAdapter = new CustomCursorAdapter(this, remindersCursor, 0);
+        setListAdapter(customCursorAdapter);
     }
 
     @Override
